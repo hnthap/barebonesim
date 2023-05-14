@@ -1,20 +1,20 @@
-# Nghiên cứu cài đặt chương trình dịch cho ngôn ngữ lập trình Bare Bones
+# Nghiên cứu cài đặt chương trình dịch cho ngôn ngữ lập trình Barebone
 
 ## Mục tiêu
 
-1. Trình bày ngôn ngữ lập trình Bare Bones.
+1. Trình bày ngôn ngữ lập trình Barebone.
 
-2. Xây dựng chương trình cho phép biên dịch chương trình viết bằng Bare Bones để có thể thực thi được cho các phép toán cộng trừ nhân chia hai số nguyên, phép toán so sánh giữa hai số nguyên.
+2. Xây dựng chương trình cho phép biên dịch chương trình viết bằng Barebone để có thể thực thi được cho các phép toán cộng trừ nhân chia hai số nguyên, phép toán so sánh giữa hai số nguyên.
 
 3. Giao diện chương trình biên dịch ở dạng đồ họa.
 
 ## Nội dung
 
-### Ngôn ngữ lập trình Bare Bones
+### Ngôn ngữ lập trình Barebone
 
 #### Đặc điểm
 
-Bare Bones (BB) là một ngôn ngữ lập trình thủ tục với các đặc điểm :
+Barebone (BB) là một ngôn ngữ lập trình thủ tục với các đặc điểm :
 
 - Không có chương trình con như hàm hay thủ tục.
 - Mã nguồn chỉ bao gồm các *câu lệnh* (statement). Mỗi câu lệnh phải kết thúc bằng dấu chấm phẩy `;`.
@@ -24,7 +24,7 @@ Bare Bones (BB) là một ngôn ngữ lập trình thủ tục với các đặc
 - Không có đầu ra và đầu vào chuẩn.
 - *Không* phân biệt chữ hoa và thường (case-insensitive). Chẳng hạn, `X` và `incr` đôi một tương đương với `x` và `INCR`.
 - Các từ khóa là `clear`, `decr`, `do`, `end`, `incr`, `not`, `while`.
-- Tên biến chỉ được bao gồm các ký tự hoặc chữ số ASCII hoặc dấu underscore `_`. Tên biến không được bắt đầu với chữ số. Tên biến không phân biệt chữ hoa và thường. Tên biến không được giống một từ khóa nào.
+- Tên biến chỉ được bao gồm các chữ cái hoặc chữ số ASCII hoặc dấu underscore `_`. Tên biến không được bắt đầu với chữ số. Tên biến không phân biệt chữ hoa và thường. Tên biến không được giống một từ khóa nào.
 
 ----
 
@@ -34,7 +34,7 @@ BB sử dụng ba câu lệnh
 
 - `incr X;` tăng giá trị của biến `X` lên một.
 
-- `decr X;` giảm giá trị của biến `X` đi một.
+- `decr X;` giảm giá trị của biến `X` đi một nếu `X` lớn hơn không.
 
 và một cấu trúc lặp
 
@@ -155,7 +155,7 @@ if X_NEG != 0 then X_NEG := 0 else X_NEG := 1
 
 ### Chương trình biên dịch ở dạng đồ họa
 
-Một chương trình giả lập quá trình biên dịch mã nguồn BB, sử dụng giao diện đồ họa, đã được xây dựng bằng Java với Gradle, được gọi là **Barebonesim** (Bare Bones + Simulator).
+Một chương trình giả lập quá trình biên dịch mã nguồn BB, sử dụng giao diện đồ họa, đã được xây dựng bằng Java với Gradle, được gọi là **Barebonesim** (Barebone + Simulator).
 
 #### Yêu cầu
 
