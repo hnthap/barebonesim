@@ -1,0 +1,38 @@
+clear Z;
+clear T_X;
+clear T_Y;
+while X not 0 do
+    incr T_X;
+    incr Z;
+    decr X;
+end;
+while Z not 0 do
+    incr X;
+    decr Z;
+end;
+while Y not 0 do
+    incr T_Y;
+    incr Z;
+    decr Y;
+end;
+while Z not 0 do
+    incr Y;
+    decr Z;
+end;
+while T_Y not 0 do
+    incr Z;
+    decr T_Y;
+end;
+while T_X not 0 do
+    decr Z;
+    decr T_X;
+end;
+incr T_X;
+while Z not 0 do
+    clear T_X;
+    clear Z;
+end;
+while T_X not 0 do
+    incr Z;
+    decr T_X;
+end;

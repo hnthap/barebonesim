@@ -1,0 +1,20 @@
+clear Z;
+clear T;
+while X not 0 do
+    incr Z;
+    incr T;
+    decr X;
+end;
+while T not 0 do
+    incr X;
+    decr T;
+end;
+while Y not 0 do
+    incr Z;
+    incr T;
+    decr Y;
+end;
+while T not 0 do
+    incr Y;
+    decr T;
+end;

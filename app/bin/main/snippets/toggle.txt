@@ -1,0 +1,11 @@
+clear T;
+incr T;
+while X not 0 do
+    clear X;
+    clear T;
+end;
+while T not 0 do
+    clear X;
+    incr X;
+    clear T;
+end;
