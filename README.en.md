@@ -273,40 +273,31 @@ The main window insists of
 
 - Current file's absolute path is displayed below the Code area ("Thanh hiển thị địa chỉ").
 
-#### Soạn thảo
+#### Code
 
-Code can be written directly in the Code area, or can be openned from file by clicking on `🗁` in Toolbar. After writing code, save it by clicking on `💾` in Toolbar.
+Code can be written directly in the Code area. Click on `🗁` in Toolbar to open a file. Save the code by clicking on `💾` in Toolbar.
 
-Trong quá trình soạn thảo, có thể kiểm tra lỗi và "làm đẹp" code bằng cách
-nhấn vào `❀` (biểu tượng bông hoa) trên thanh công cụ.
+While coding, check for errors and "beautify" code by clicking on `❀` (the flower icon) in Toolbar.
 
-#### Sử dụng code có sẵn
+#### Use snippets
 
-Để tiết kiệm thời gian soạn thảo, có thể sử dụng các đoạn code có sẵn giúp
-thực hiện các phép tính cơ bản (cộng, trừ, nhân, chia, gán giá trị, so sánh,
-chuyển từ không thành khác không và ngược lại, đổi dấu).
+To save your coding time, use existing snippets that perform basic operations (addtion, subtraction, multiplication, division, comparison, Boolean toggle, changing a variable's sign).
 
-#### Đặt giá trị ban đầu cho biến
+#### Assign starting values for variables
 
-Sử dụng cửa sổ Input (bên trái cửa sổ soạn thảo), ta có thể gán giá trị ban
-đầu cho một số biến.
+Using Input window (on the left of the Code area), you can assign starting values for some variables.
 
-- Để thêm biến, chọn `[+]`. Trong cửa sổ vừa hiện ra, nhập tên biến và giá trị
-  ban đầu của nó rồi chọn OK.
+- To add new variable, select `[+]` (the plus sign). Enter the variable's name and value and select OK.
 
-- Để thay đổi giá trị của biến, chọn `[✎]`. Chọn biến cần chỉnh sửa, chọn OK
-  rồi nhập giá trị mới, chọn OK.
+- To change the value of a variable, select `[✎]` (the pencil icon). Choose the variable to change, select OK and enter its new value, select OK.
 
-- Để xóa một biến khỏi danh sách, chọn `[-]`. Chọn biến cần xóa và chọn OK.
+- To remove a variable from the list, select `[-]` (the minus sign). Choose the variable to remove and select OK.
 
-Đây là giá trị ban đầu của các biến trước khi code được thực thi.
+These are starting values of variables before the code is executed.
 
-> Ngoài ra, các biến này có thể được thêm từ file CSV. Nhấn nút ` From CSV `
-> và chọn file cần tìm. File CSV tuân theo
-> [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt) và *không chứa dòng
-> header*.
+> Alternatively, these variables can be added from a CSV file. Click on ` From CSV ` button and choose the file. CSV file follows [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt) and *does NOT contain the header row*.
 > 
-> Một ví dụ về file CSV hợp lệ :
+> An example for a valid CSV file :
 > 
 > ```csv
 > X,12
@@ -314,17 +305,13 @@ Sử dụng cửa sổ Input (bên trái cửa sổ soạn thảo), ta có thể
 > Z,0
 > ```
 
-#### Thực thi và xem kết quả
+#### Execute and view results
 
-Sau khi đã có code và danh sách biến với giá trị ban đầu, có thể thực thi
-(chạy code) bằng cách chọn `▶` trên thanh công cụ.
+After starting values of variables and the code are completed, execute (run) the code by clicking on `▶` (the triangle icon) in Toolbar.
 
-Nếu code có lỗi (tên biến không phù hợp, vòng lặp vô hạn v.v.) hoặc chạy quá
-thời gian giới hạn (mặc định là $1000 \;\textrm{ms}$), chương trình sẽ báo lỗi
-và ngưng chạy.
+If an error is catched in code (invalid variable name, infinite loop, etc.) or it's executed beyond the time limit ($1000 \;\textrm{ms}$ by default), the program will notify about the error and stop.
 
-Nếu chạy thành công, các giá trị *sau khi thực thi* của biến sẽ hiển thị trên
-cửa sổ Output (bên phải cửa sổ soạn thảo).
+If successfully executed, the values of variables *after executing* will be displayed on Output window (on the right of the Code area).
 
 > Lưu kết quả vào file CSV bằng nút ` Extract to CSV ` trên cửa sổ Output.
 > 
