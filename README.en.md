@@ -1,8 +1,8 @@
 # Barebone programming language and Barebonesim
 
-> [Tiếng Việt](README.md)
+> [Bản dịch Tiếng Việt ở đây](README.md)
 
-This repository contains basic information about the *Barebone programming language*, some code for basic calculation and a Barebone compiler program in GUI, for a final presentation topic in my *Principles of Programming Languages* class.
+This repository contains basic information about the *Barebone programming language*, some code for basic calculation and a Barebone compiler program in GUI, for the final presentation topic in my *Principles of Programming Languages* class.
 
 The goals are:
 
@@ -15,73 +15,52 @@ The goals are:
 <!-- Table of Contents -->
 
 <details open>
-   <summary><em>Table of Contents</em></summary>
-   <ol>
+   <summary><b>Table of Contents</b></summary>
+   <ul>
       <li>
-         <a href="#ngôn-ngữ-lập-trình-barebone">
-            Ngôn ngữ lập trình Barebone
-         </a>
+         <a href="#barebone-programming-language">Barebone Programming Language</a>
          <ul>
-            <li><a href="#đặc-điểm-của-barebone">
-               Đặc điểm của Barebone
-            </a></li>
-            <li><a href="#cú-pháp">Cú pháp</a></li>
+            <li><a href="#language-features">Language Features</a></li>
+            <li><a href="#syntax">Syntax</a></li>
             <li>
-               <a href="#nhận-xét">Nhận xét</a>
+               <a href="#reviews">Reviews</a>
                <ul>
-                  <li><a href="#phép-toán-cơ-bản">Phép toán cơ bản</a></li>
-                  <li><a href="#có-thể-thay-clear-bằng-vòng-lặp">
-                     Có thể thay clear bằng vòng lặp
-                  </a></li>
-                  <li><a href="#biểu-diễn-số-nguyên-âm">
-                     Biểu diễn số nguyên âm
-                  </a></li>
+                  <li><a href="#basic-operations">Basic operations</a></li>
+                  <li><a href="#using-a-loop-in-place-of-clear-statement">Using a loop in place of clear statement</a></li>
+                  <li><a href="#representing-negative-integers">Representing negative integers</a></li>
                </ul>
             </li>
          </ul>
       </li>
       <li>
-         <a href="#chương-trình-biên-dịch-ở-dạng-đồ-họa">
-            Chương trình biên dịch ở dạng đồ họa
-         </a>
+         <a href="#gui-compiler-program">GUI Compiler Program</a>
          <ul>
-            <li><a href="#yêu-cầu">Yêu cầu</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#installation">Intallation</a></li>
             <li>
-               <a href="#sử-dụng">Sử dụng</a>
+               <a href="#usage">Usage</a>
                <ul>
-                  <li><a href="#khởi-động">Khởi động</a></li>
-                  <li><a href="#soạn-thảo">Soạn thảo</a></li>
-                  <li><a href="#sử-dụng-code-có-sẵn">
-                     Sử dụng code có sẵn
-                  </a></li>
-                  <li><a href="#đặt-giá-trị-ban-đầu-cho-biến">
-                     Đặt giá trị ban đầu cho biến
-                  </a></li>
-                  <li><a href="#thực-thi-và-xem-kết-quả">
-                     Thực thi và xem kết quả
-                  </a></li>
+                  <li><a href="#startup">Startup</a></li>
+                  <li><a href="#code">Code</a></li>
+                  <li><a href="#use-snippets">Use snippets</a></li>
+                  <li><a href="#assign-starting-values-for-variables">Assign starting values for variables</a></li>
+                  <li><a href="#execute-and-view-results">Execute and view results</a></li>
                </ul>
             </li>
-            <li><a href="#ví-dụ">Ví dụ</a></li>
+            <li><a href="#example">Example</a></li>
             <li>
-               <a href="#đặc-điểm">Đặc điểm</a>
+               <a href="#features">Features</a>
                <ul>
-                  <li><a href="#barebonesim-dịch-bb-bằng-cách-nào">
-                     Barebonesim dịch BB bằng cách nào ?
-                  </a></li>
-                  <li><a href=
-                     "#barebonesim-có-hỗ-trợ-nhập-và-xuất-giá-trị-không">
-                     Barebonesim có hỗ trợ nhập và xuất giá trị không ?
-                  </a></li>
-                  <li><a href=
-                     "#barebonesim-có-hỗ-trợ-comment-trong-code-không">
-                     Barebonesim có hỗ trợ comment trong code không ?
-                  </a></li>
+                  <li><a href="#how-does-barebonesim-compile-barebone">How does Barebonesim compile Barebone?</a></li>
+                  <li><a href="#does-barebonesim-support-input-and-output">Does Barebonesim support input and output?</a></li>
+                  <li><a href="#does-barebonesim-support-code-commenting">Does Barebonesim support code commenting?</a></li>
                </ul>
             </li>
+            <li><a href="#contributing">Contributing</a></li>
+            <li><a href="#license">License</a></li>
          </ul>
       </li>
-   </ol>
+   </ul>
 </details>
 
 ## Barebone Programming Language
@@ -217,7 +196,7 @@ end;
 
 #### Representing negative integers
 
-A signed integer $X$ can be represented in Barebone using a sign variable. The sign variable `X_NEG` equals zero if $X \ge 0$, otherwise it does not equal zero.
+A *signed* integer $X$ can be represented in Barebone using a sign variable. The sign variable `X_NEG` equals zero if $X \ge 0$, otherwise it does not equal zero.
 
 For example, an integer $X$ can be represented with
 
@@ -243,7 +222,15 @@ Oracle JDK 1.8+ is required. Check the version of Java using this command
 java -version
 ```
 
-If Java is not available, download it following the instruction on [java.com](https://www.java.com/en/download/) and run the command above to confirm.
+If Java is not available, download it following the instruction on [java.com](https://www.java.com/en/download/) and run the command above to confirm the version.
+
+### Installation
+
+Clone this repo.
+
+```
+git clone https://github.com/hnthap/barebonesim.git -depth 1
+```
 
 ### Usage
 
@@ -257,7 +244,7 @@ In the top level directory of this repo (containing the file `gradlew`), run thi
 
 This window will appear :
 
-<p align="center" width="100%"><img width="80%" src="img/Screenshot_01.png"></p>
+<p align="center" width="100%"><img width="90%" src="img/Screenshot_01.png"></p>
 
 The main window insists of
 
@@ -281,7 +268,7 @@ While coding, check for errors and "beautify" code by clicking on `❀` (the flo
 
 #### Use snippets
 
-To save your coding time, use existing snippets that perform basic operations (addtion, subtraction, multiplication, division, comparison, Boolean toggle, changing a variable's sign).
+To save your coding time, use existing snippets that perform basic operations (addtion, subtraction, multiplication, division, comparison, Boolean toggling, changing a variable's sign).
 
 #### Assign starting values for variables
 
@@ -313,106 +300,90 @@ If an error is catched in code (invalid variable name, infinite loop, etc.) or i
 
 If successfully executed, the values of variables *after executing* will be displayed on Output window (on the right of the Code area).
 
-> Lưu kết quả vào file CSV bằng nút ` Extract to CSV ` trên cửa sổ Output.
-> 
-> Đem các giá trị của cửa sổ Output sang cửa sổ Input bằng nút ` From Result `
-> trên cửa sổ Input.
+> Save results to a CSV file by clicking on ` Extract to CSV ` on Output window.
+>
+> Bring results on Output window to Input window by clicking on ` From Result ` on Input window.
 
-Nếu code và giá trị ban đầu của các biến (Input) có thay đổi sau khi đã thực
-thi, có thể cập nhật giá trị Output mới bằng cách chạy lại.
+If the code and starting values of variables are changed after execution, update the Output window by execute again.
 
-### Ví dụ
+### Example
 
-Ví dụ, để tạo đoạn code thực hiện `A := Z * T` với các giá trị của `Z` và `T`
-cho trước, ta làm như sau :
+For example, to perform `A := Z * T` with specified values of `Z` and `T`:
 
-1. Trên thanh menu, chọn File → New File rồi tạo file mới.
+1. On Menu bar, select File &rarr; New File and create new file.
 
-2. Sau khi tạo và mở file mới, trên thanh menu, chọn Snippets → Snippets.
+2. After a new file is created and opened, on Menu bar, select Snippets &rarr; Snippets.
 
-3. Trên cửa sổ "Snippets" mới hiện ra, chọn `Z := X * Y` rồi chọn OK.
+3. On "Snippets" window, choose `Z := X * Y` and select OK.
 
-4. Trên cửa sổ "Snippet Settings", thay đổi tên các biến như hình rồi chọn OK.
+4. On "Snippet Settings" window, rename variables as below and select OK.
    
    <p align="center" width="100%"><img width="50%" src="img/Screenshot_03.png"></p>
    
-   > Chú ý đặt tên các biến tạm thời (temporary variables) sao cho không trùng
-   > với biến nào đang dùng. Các biến tạm thời trong một phép toán không được
-   > trùng tên. Tên biến tạm thời nên bắt đầu với "T" hoặc "T_".
-   > 
-   > Chúng có thể được tái sử dụng nhiều lần. Sau mỗi phép tính cung cấp bởi
-   > snippet, các biến tạm đều mang giá trị không.
+   > Remember to name temporary variables so that they don't have the same name with any variables in use. Two variables in the same snippet cannot have the same name. Temporary variable names should start with "T" or "T_".
+   >
+   > Temporary variables can be reused in other operations. After an operation perform by a snippet, all temporary variables will be set to zero.
 
-5. Trong cửa sổ mới hiện ra, tô chọn tất cả đoạn code trong khung và nhấn tổ
-   hợp Ctrl + C để sao chép, rồi chọn OK.
-   
+5. On "Here You Have" window, select all new code and press <kbd>Ctrl</kbd> + <kbd>C</kbd> (or equivalent shortcut to copy text) and select OK.
+
    <p align="center" width="100%"><img width="33%" src="img/Screenshot_04.png"></p>
 
-6. Vào cửa sổ soạn thảo, rồi nhấn tổ hợp Ctrl + V để dán đoạn code vừa sao chép.
+6. In the Code area, press <kbd>Ctrl</kbd> + <kbd>V</kbd> (or equivalent shortcut to paste text).
 
-7. Bấm nút `[+]` trên cửa sổ Input (bên trái cửa sổ soạn thảo) rồi điền tên và
-   giá trị ban đầu của biến `Z` (ví dụ, bằng $12$).
+7. Click on `[+]` on Input window (on the left of the Code area), then enter the name and starting value of `Z` (equals $12$ for example).
    
    <p align="center" width="100%"><img width="50%" src="img/Screenshot_06.png"></p>
    
-   Làm tương tự với biến `T` (ví dụ, bằng $15$).
+   Do the same thing for `T` (equals $15$ for example).
    
    <p align="center" width="100%"><img width="50%" src="img/Screenshot_07.png"></p>
    
-   Cửa sổ Input sẽ hiển thị như sau :
+   The Input window will be displayed like this:
    
    <p align="center" width="100%"><img width="20%" src="img/Screenshot_08.png"></p>
 
-8. Bấm nút `▶` trên thanh công cụ để thực thi đoạn code. Có thể thấy kết quả
-   gần giống như hình dưới :
-   
-   <p align="center" width="100%"><img width="80%" src="img/Screenshot_09.png"></p>
-   
-   Nhìn vào cửa sổ Output (bên phải cửa sổ soạn thảo), ta thấy `A` bằng $180$
-   là kết quả cần tìm.
+8. Click on `▶` in Toolbar to execute your code. The main window can be like below:
 
-### Đặc điểm
+   <p align="center" width="100%"><img width="90%" src="img/Screenshot_09.png"></p>
 
-#### Barebonesim dịch BB bằng cách nào ?
+   On the Output window (on the right of the Code area), we see that `A` equals $180$, which is what we need.
 
-Code được biên dịch và thực thi theo các bước sau :
+### Features
 
-1. Các giá trị ban đầu của biến (trên cửa sổ Input, bên trái cửa sổ soạn thảo)
-   được lưu vào một đối tượng VariableContainer, có tác dụng lưu trữ tất cả
-   biến theo tên và giá trị của chúng.
+#### How does Barebonesim compile Barebone?
 
-2. *Parser* chuyển code thành một danh sách các *cây cú pháp trừu tượng*
-   (Abstract Syntax Tree), mỗi cây biểu diễn một câu lệnh (statement). Mỗi
-   vòng lặp cũng là một câu lệnh.
+Code is compiled and executed arcording to the following steps:
 
-3. Trong khi *parse*, nếu phát hiện ra lỗi cú pháp, Parser sẽ ngừng lại và
-   báo lỗi.
+1. Starting values of variables (on the Input window, on the left of the Code area) are stored in a `VariableContainer` object. It stores all "input" variables by their names and values.
 
-4. Danh sách các cây cú pháp trừu tượng được lưu trong *Compiler* và được
-   thực thi tuần tự trong một tiểu trình khác. Các thay đổi về giá trị biến
-   sẽ được áp dụng lên đối tượng VariableContainer ở bước đầu tiên.
+2. *Parser* converts code into a list of *abstract syntax trees*. Each of them represents a statement. (A loop is also a statement.)
 
-5. Nếu Compiler thực thi code quá thời gian giới hạn (timeout), nó sẽ ngừng
-   lại và báo lỗi. Thời gian giới hạn là $1000 \;\textrm{ms}$ theo mặc định và
-   có thể tùy chỉnh.
+3. While parsing, if a syntax error is detected, Parser will stop and report the error.
 
-6. Nếu thực thi thành công, các giá trị cuối cùng lưu trong VariableContainer
-   sẽ được hiển thị trên cửa sổ Output (bên phải cửa sổ soạn thảo).
+4. If the parsing process is success, the list of abstract syntax trees will be stored in *Compiler* and be executed sequentially in another thread. All changes in variables' values will be applied in a copy of the `VariableContainer` object in the first step.
 
-Ta thấy tất cả các bước được thực hiện trong thời gian chạy (runtime) của
-Barebonesim ; đồng thời **không có file executable nào được tạo ra**.
+5. If the code is executed beyond the time limit (timeout), Compiler will stop and report the error. (The time limit is $1000 \;\textrm{ms}$ by default and can be modified.)
 
-#### Barebonesim có hỗ trợ nhập và xuất giá trị không ?
+6. If executed successfully, final values in the `VariableContainer` will be displayed on Output window (on the right of the Code area).
 
-Theo khái niệm, BB chỉ hỗ trợ các câu lệnh `incr`, `decr`, `clear` và vòng lặp
-`while` (với điều kiện duy nhất là biến điều kiện khác $0$), ngoài ra không có
-câu lệnh nào khác.
+All steps are performed in Barebonesim's runtime. **There is no executable file created.**
 
-Một số compiler cho BB hỗ trợ thêm `read` và `print` để nhập và xuất giá trị ;
-tuy nhiên để nhấn mạnh tính đơn giản của BB, Barebonesim không hỗ trợ đầu vào
-hay đầu ra chuẩn. Thay vào đó, có thể xem giá trị của các biến sau khi thực
-thi ở cửa sổ Output.
+#### Does Barebonesim support input and output?
 
-#### Barebonesim có hỗ trợ comment trong code không ?
+Conceptually, Barebone only supports `incr`, `decr`, `clear` and `while` statements, other than that there is no more statements. Some Barebone compilers additionally support `read` and `print` statements to enter and print a variable's value.
 
-Barebonesim chưa hỗ trợ comment trong code.
+Although, to emphasize the simplicity of Barebone, Barebonesim does not support standard I/O. Instead, the results can be displayed on Output window.
+
+#### Does Barebonesim support code commenting?
+
+Barebonesim does not yet support code commenting.
+
+### Contributing
+
+If you have any suggestion, feel free to fork this repo and create a pull request. Any contributions are greatly appreciated. I may be slow to respond to pull requests, but I'll try to respond later.
+
+### License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!--Acknowlegdements-->
