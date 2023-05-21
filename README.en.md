@@ -275,11 +275,7 @@ The main window insists of
 
 #### Soạn thảo
 
-Code can be written directly in the Code area. You can
-
-Có thể viết code trực tiếp vào cửa sổ soạn thảo, hoặc mở file code bằng cách
-nhấn vào `🗁` trên thanh công cụ và chọn file cần tìm. Sau khi soạn thảo, lưu
-bằng cách nhấn vào `💾` trên thanh công cụ và nhập tên rồi lưu file.
+Code can be written directly in the Code area, or can be openned from file by clicking on `🗁` in Toolbar. After writing code, save it by clicking on `💾` in Toolbar.
 
 Trong quá trình soạn thảo, có thể kiểm tra lỗi và "làm đẹp" code bằng cách
 nhấn vào `❀` (biểu tượng bông hoa) trên thanh công cụ.
