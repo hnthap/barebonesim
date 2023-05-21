@@ -1,25 +1,21 @@
-# Nghiên cứu cài đặt chương trình dịch cho ngôn ngữ lập trình Barebone
+# Barebone programming language and Barebonesim
 
-> [English](README.en.md)
+> [Tiếng Việt](README.md)
 
-Repository này chứa nội dung cơ bản về ngôn ngữ lập trình Barebone, các đoạn
-code cho các phép toán cơ bản và một chương trình biên dịch Barebone dùng giao
-diện đồ họa, nhằm phục vụ cho đề tài trình bày cuối kỳ môn học Nguyên lý và
-phương pháp lập trình.
+This repository contains basic information about the *Barebone programming language*, some code for basic calculation and a Barebone compiler program in GUI, for a final presentation topic in my *Principles of Programming Languages* class.
 
-Các mục tiêu của đề tài này là :
+The goals are:
 
-1. Trình bày ngôn ngữ lập trình Barebone.
+1. Presents about the Barebone programming language.
 
-2. Xây dựng chương trình cho phép biên dịch chương trình viết bằng Barebone để
-   có thể thực thi được cho các phép toán cộng trừ nhân chia hai số nguyên,
-   phép toán so sánh giữa hai số nguyên.
+2. Builds a program that compiles code in Barebone to perform addition, subtraction, multiplication, division and comparison operation.
 
-3. Giao diện chương trình biên dịch ở dạng đồ họa.
+3. Builds the program in GUI.
 
-<!-- Các đề mục -->
+<!-- Table of Contents -->
+
 <details open>
-   <summary><em>Các đề mục</em></summary>
+   <summary><em>Table of Contents</em></summary>
    <ol>
       <li>
          <a href="#ngôn-ngữ-lập-trình-barebone">
@@ -88,52 +84,53 @@ Các mục tiêu của đề tài này là :
    </ol>
 </details>
 
-## Ngôn ngữ lập trình Barebone
+## Barebone Programming Language
 
-### Đặc điểm của Barebone
+### Language Features
 
-Barebone (BB) là một ngôn ngữ lập trình thủ tục với các đặc điểm :
+Barebone is a procedural programming language with these features :
 
-- Không có chương trình con như hàm hay thủ tục.
-- Mã nguồn chỉ bao gồm các *câu lệnh* (statement). Mỗi câu lệnh phải kết thúc
-   bằng dấu chấm phẩy `;`.
-- Kiểu dữ liệu duy nhất là **số nguyên không âm**.
-- Các biến đều là toàn cục (global). Khi được nhắc đến lần đầu trong một câu
-   lệnh, biến được gán bằng không trước khi câu lệnh đó được thực thi.
-- Cấu trúc lặp có thể nằm lồng trong cấu trúc lặp khác.
-- Không có đầu ra và đầu vào chuẩn.
-- *Không* phân biệt chữ hoa và thường (case-insensitive). Chẳng hạn, `X` và
-   `incr` đôi một tương đương với `x` và `INCR`.
-- Các từ khóa là `clear`, `decr`, `do`, `end`, `incr`, `not`, `while`.
-- Tên biến chỉ được bao gồm các chữ cái hoặc chữ số ASCII hoặc dấu underscore
-   `_`. Tên biến không được bắt đầu với chữ số. Tên biến không phân biệt chữ
-   hoa và thường. Tên biến không được giống một từ khóa nào.
+- Barebone does not have subroutines such as functions and procedures.
 
-### Cú pháp
+- Code can only contain statements. Each statement must ends with a semicolon `;`.
 
-BB sử dụng ba câu lệnh
+- The only data type is **non-negative integer**.
 
-- `clear X;` gán biến mang tên `X` bằng 0.
+- Variables are global. When first mentioned in a statement, the variable is set to zero before executing the statement.
 
-- `incr X;` tăng giá trị của biến `X` lên một.
+- A loop can be nested in another loop.
 
-- `decr X;` giảm giá trị của biến `X` đi một nếu `X` lớn hơn không.
+- There are no standard I/O.
 
-và một cấu trúc lặp
+- Case-insensitive. For example, `X` and `incr` are the same as `x` and `INCR`, respectively.
+
+- Keywords are `clear`, `decr`, `do`, `end`, `incr`, `not` and `while`.
+
+- Variable names can only contain ASCII alphanumeric or underscore `_`. Variable names do not start with a digit. Variable names are case-insensitive and cannot be the same as any keyword.
+
+### Syntax
+
+There are three statements in Barebone:
+
+- `clear X;` assign the variable `X` to zero.
+
+- `incr X;` increase `X` by one.
+
+- `decr X;` decrease `X` by one if it is greater than zero.
+
+and a loop structure
 
 ```
 while X not 0 do ... end;
 ```
 
-được thực thi như sau :
+that works in two steps
 
-1. Nếu `X` bằng không thì thoát vòng lặp, nếu không thì tiếp tục.
+1. Exits the loop if `X` is zero, otherwise goes to step 2.
 
-2. Thực hiện tuần tự những câu lệnh ở vị trí `...` cho đến câu lệnh `end;` và
-   quay lại bước 1.
+2. Sequentially executes statements in the `...` until the statement `end;`. Goes to step 1.
 
-Mỗi dấu cách đều có thể thay bằng ký tự xuống dòng hay *tab* (bốn dấu cách) để
-dễ đọc, chẳng hạn `while X not 0 do decr X end;` thì cũng tương đương với
+Each space can be replaced by a newline or a tab (four whitespaces) for readability, for example `while X not 0 do decr X end;` is the same as
 
 ```
 while X not 0 do
@@ -141,7 +138,7 @@ while X not 0 do
 end;
 ```
 
-và
+or
 
 ```
 while X not 0 do
@@ -149,9 +146,9 @@ decr X;
 end;
 ```
 
-Nên ngắt dòng và tab đúng chỗ để code dễ đọc hơn.
+It is recommended to add newlines and tabs at right places for readability.
 
-Ví dụ về một đoạn mã nguồn hợp lệ :
+Example of a valid code snippet:
 
 ```
 clear Y;
@@ -167,26 +164,23 @@ while T not 0 do
 end;
 ```
 
-### Nhận xét
+### Reviews
 
-Các file được nhắc đến trong mục này có thể tìm thấy ở
-`app/src/main/resources/snippets/`.
+Files mentioned in this section can be found in `app/src/main/resources/snippets/`.
 
-#### Phép toán cơ bản
+#### Basic operations
 
-- Cấu trúc rẽ nhánh `if X != 0 then X := 0 else X := 1` ở file `toggle.txt`,
-   có thể gọi là `invert X`.
+- Branching structure `if X != 0 then X := 0 else X := 1` in `toggle.txt`. It can be called `invert X`.
 
-- Phép cộng `Z := X + Y` ở file `add.txt`.
+- Addition operation `Z := X + Y` in file `add.txt`.
 
-- Phép trừ `Z := X - Y` ở file `subtract.txt`.
+- Subtraction operation `Z := X - Y` in file `subtract.txt`.
 
-- Phép nhân `Z := X * Y` ở file `multiply.txt`.
+- Multiplication operation `Z := X * Y` in file `multiply.txt`.
 
-- Phép chia nguyên `Z := floor(X / Y)` ở file `int_divide.txt`.
+- Integer division operation `Z := floor(X / Y)` in file `int_divide.txt`.
 
-- Phép so sánh `if X < Y then Z := 0 else Z := 1` ở file `less_than.txt`, có
-   thể viết lại bằng pseudo-code như sau :
+- Comparison operation `if X < Y then Z := 0 else Z := 1` in file `less_than.txt`, can be rewritten in pseudo-code as:
 
 ```
 Z := 0
@@ -207,13 +201,13 @@ while T_X != 0 do
     T_X := T_X - 1
 ```
 
-- Các phép so sánh khác có thể tìm thấy ở `not_less_than.txt`,
+- Other comparison operations can be found in `not_less_than.txt`,
    `greater_than.txt`, `not_greater_than.txt`, `equals.txt`,
    `not_equals.txt`.
 
-#### Có thể thay clear bằng vòng lặp
+#### Using a loop in place of clear statement
 
-Ta nhận thấy có thể thay thế `clear X;` bằng đoạn mã sau
+In place of `clear X`, we can use this code:
 
 ```
 while X not 0 do
@@ -221,73 +215,67 @@ while X not 0 do
 end;
 ```
 
-#### Biểu diễn số nguyên âm
+#### Representing negative integers
 
-Có thể biểu diễn số âm trong BB bằng cách dùng một biến dấu đi chung với số
-không âm. Biến dấu mang giá trị $0$ nếu $X \ge 0$ và mang giá trị khác $0$
-trong trường hợp ngược lại.
+A signed integer $X$ can be represented in Barebone using a sign variable. The sign variable `X_NEG` equals zero if $X \ge 0$, otherwise it does not equal zero.
 
-Ví dụ, số nguyên $X$ có thể được biểu diễn bới
+For example, an integer $X$ can be represented with
 
-- `X` mang giá trị tuyệt đối của $X$ và
+- `X` as the absolute value of $X$ and
 
-- `X_NEG` là biến dấu.
+- `X_NEG` as the sign variable.
 
-Từ đó ta có thể đổi dấu của $X$ bằng đoạn code tương đương với
+We can change the sign of $X$ using this operation
 
 ```
 if X_NEG != 0 then X_NEG := 0 else X_NEG := 1
 ```
 
-## Chương trình biên dịch ở dạng đồ họa
+## Compiler Program in GUI
 
-**Barebonesim** (Barebone + Simulator) là chương trình giả lập quá trình biên
-dịch mã nguồn Barebone với giao diện đồ họa, được xây dựng bằng Java với build
-tool là Gradle.
+**Barebonesim** (Barebone + Simulator) is a Barebone compiling simulation Java program in GUI. Barebonesim is built with Gradle 7.5.1.
 
-### Yêu cầu
+### Prerequisites
 
-Cần Oracle JDK từ 1.8 trở lên. Kiểm tra phiên bản của Java bằng dòng lệnh
+Oracle JDK 1.8+ is required. Check the version of Java using this command
 
 ```powershell
 java -version
 ```
 
-Nếu không có sẳn Java, hãy tải về theo hướng dẫn tại
-[java.com](https://www.java.com/en/download/) và chạy lại lệnh trên để kiểm tra
-phiên bản.
+If Java is not available, download it following the instruction on [java.com](https://www.java.com/en/download/) and run the command above to confirm.
 
-### Sử dụng
+### Usage
 
-#### Khởi động
+#### Startup
 
-Ở thư mục gốc (chứa file `gradlew`), chạy dòng lệnh sau
+In the top level directory of this repo (containing the file `gradlew`), run this command
 
 ```powershell
 ./gradlew run
 ```
 
-Cửa số sau sẽ hiện ra với các thành phần như hình dưới :
+This window will appear :
 
 <p align="center" width="100%"><img width="80%" src="img/Screenshot_01.png"></p>
 
-Cửa sổ chính bao gồm :
+The main window insists of
 
-- Thanh menu bao gồm các lệnh cơ bản để thao tác với file và code.
+- Menu bar ("Thanh menu") contains basic command to interact with file and code,
 
-- Thanh công cụ bao gồm các nút, từ trái sang phải, là chạy code, mở file, lưu
-   file, kiểm tra lỗi đồng thời "làm đẹp" code, tạo snippet (các đoạn code có
-   sẵn) và thoát file.
+- Toolbar ("Thanh công cụ") contains buttons (from left to right) to run code, open file, save file, check for errors and "beautify" code, create snippets and close file.
 
-- Cửa sổ soạn thảo soạn thảo mã nguồn (code).
+- Code area ("Cửa sổ soạn thảo") to write and change source code.
 
-- Cửa sổ Input thao tác với các biến đầu vào.
+- Input window ("Cửa sổ Input", on the left of the Code area) to work with input variables.
 
-- Cửa sổ Output thao tác với kết quả sau khi thực thi code.
+- Output window ("Cửa sổ Output", on the right of the Code area) to work with the result of variables after executing code.
 
-- Thanh hiển thị địa chỉ hiển thị địa chỉ tuyệt đối của file code đang mở.
+- Current file's absolute path is displayed below the Code area ("Thanh hiển thị địa chỉ").
 
 #### Soạn thảo
+
+Code can be written directly in the Code area. You can
 
 Có thể viết code trực tiếp vào cửa sổ soạn thảo, hoặc mở file code bằng cách
 nhấn vào `🗁` trên thanh công cụ và chọn file cần tìm. Sau khi soạn thảo, lưu
@@ -308,10 +296,10 @@ Sử dụng cửa sổ Input (bên trái cửa sổ soạn thảo), ta có thể
 đầu cho một số biến.
 
 - Để thêm biến, chọn `[+]`. Trong cửa sổ vừa hiện ra, nhập tên biến và giá trị
-ban đầu của nó rồi chọn OK.
+  ban đầu của nó rồi chọn OK.
 
 - Để thay đổi giá trị của biến, chọn `[✎]`. Chọn biến cần chỉnh sửa, chọn OK
-rồi nhập giá trị mới, chọn OK.
+  rồi nhập giá trị mới, chọn OK.
 
 - Để xóa một biến khỏi danh sách, chọn `[-]`. Chọn biến cần xóa và chọn OK.
 
@@ -345,7 +333,7 @@ cửa sổ Output (bên phải cửa sổ soạn thảo).
 > Lưu kết quả vào file CSV bằng nút ` Extract to CSV ` trên cửa sổ Output.
 > 
 > Đem các giá trị của cửa sổ Output sang cửa sổ Input bằng nút ` From Result `
-trên cửa sổ Input.
+> trên cửa sổ Input.
 
 Nếu code và giá trị ban đầu của các biến (Input) có thay đổi sau khi đã thực
 thi, có thể cập nhật giá trị Output mới bằng cách chạy lại.
