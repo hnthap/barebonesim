@@ -18,7 +18,7 @@ Các mục tiêu của đề tài này là :
 3. Giao diện chương trình biên dịch ở dạng đồ họa.
 
 <!-- Các đề mục -->
-<details>
+<details open>
    <summary><em>Các đề mục</em></summary>
    <ol>
       <li>
