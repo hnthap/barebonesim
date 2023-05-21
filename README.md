@@ -395,6 +395,6 @@ Nếu có bất kỳ đề xuất nào, xin quý vị tự do *fork* repo này v
 
 ### Giấy phép
 
-Phần mềm này được phân phối dưới giấy phép MIT. Xem thêm thông tin tại [`LICENSE`](License).
+Phần mềm này được phân phối dưới giấy phép MIT. Xem thêm thông tin tại [`LICENSE`](LICENSE).
 
 <!--Cảm ơn-->
